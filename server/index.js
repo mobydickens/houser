@@ -31,6 +31,18 @@ app.post('/api/house', (req, res) => {
     });
 })
 
+app.delete('/api/house/:id', (req, res) => {
+  const dbInstance = req.app.get('db');
+  let { id } = req.params;
+  dbInstance.delete_house( id )
+    .then( () => {
+      res.status(200).send('House deleted!');
+    }).catch(error => {
+      console.log('error in delete!', error);
+      res.sendStatus(500);
+    });
+})
+
 massive(CONNECTION_STRING)
   .then(dbInstance => {
     app.set('db', dbInstance);

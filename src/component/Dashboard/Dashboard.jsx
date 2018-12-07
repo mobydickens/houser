@@ -12,6 +12,10 @@ class Dashboard extends Component {
   }
 
   componentDidMount(){
+    this.getAllHouses();
+  }
+
+  getAllHouses = () => {
     axios
       .get('/api/houses')
       .then(res => {
@@ -22,11 +26,20 @@ class Dashboard extends Component {
       })
   }
 
+  deleteHouse = (id) => {
+    axios 
+      .delete(`/api/house/${id}`)
+      .then(res => {
+        console.log(res.data);
+        this.getAllHouses();
+      })
+  }
+
 	render() {
     let houseList = this.state.houses.map((house, i) => {
       return(
         <div key={i}>
-          <House house={ house }/>
+          <House house={ house } deleteHouseFn={ this.deleteHouse } id={ house.id }/>
         </div>
       )
     })

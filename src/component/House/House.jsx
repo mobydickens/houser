@@ -9,7 +9,7 @@ function House (props) {
       <p>{props.house.city}</p>
       <p>{props.house.state}</p>
       <p>{props.house.zipcode}</p>
-      <button>Delete</button>
+      <button onClick={ () => props.deleteHouseFn(props.id) }>Delete</button>
     </div>
   )
 }
