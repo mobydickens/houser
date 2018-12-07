@@ -8,11 +8,17 @@ class StepOne extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      property_name: '',
-      address: '',
-      city: '',
-      state: '',
-      zipcode: ''
+      property_name: this.props.property_name,
+      address: this.props.address,
+      city: this.props.city,
+      state: this.props.state,
+      zipcode: this.props.zipcode
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.property_name !== this.state.property_name) {
+      console.log('ComponentDidUpdate!');
     }
   }
 
@@ -44,17 +50,29 @@ class StepOne extends Component {
   }
 
 	render() {
-    console.log("props in step one", this.props)
+    console.log("props in step one", this.props.property_name)
     let { property_name, address, city, state, zipcode } = this.state
 		return(
-      <div>
-        <div>Step One</div>
-        <input type="text" placeholder='Property name' onChange={ (e) => this.updateName(e.target.value) } value={this.state.property_name}/>
-        <input type="text" placeholder='Address' onChange={ (e) => this.updateAddress(e.target.value) } value={this.state.address}/>
-        <input type="text" placeholder='City' onChange={ (e) => this.updateCity(e.target.value) } value={this.state.city}/>
-        <input type="text" placeholder='State' onChange={ (e) => this.updateState(e.target.value) } value={this.state.state}/>
-        <input type="text" placeholder='Zipcode' onChange={ (e) => this.updateZipcode(e.target.value) } value={this.state.zipcode}/>
-        <Link to='/wizard/step2'><button onClick={ () => this.props.stepOne(property_name, address, city, state, zipcode) }>Next Step</button></Link>
+      <div className='main'>
+        <div className='main-div'>
+          <h1 className='listing-title'>Add New Listing</h1>
+          <Link to='/'><button className='cancel'>Cancel</button></Link>
+        </div>
+          <div className="inputs">
+          <label htmlFor="property name">Property Name</label><br/>
+          <input size='30' type="text" onChange={ (e) => this.updateName(e.target.value) } value={this.state.property_name}/><br/>
+          <label htmlFor="address">Address</label><br/>
+          <input size='70' type="text" onChange={ (e) => this.updateAddress(e.target.value) } value={this.state.address}/><br/>
+          <label htmlFor="city">City</label><br/>
+          <input type="text" onChange={ (e) => this.updateCity(e.target.value) } value={this.state.city}/><br/>
+          <label htmlFor="State">State</label><br/>
+          <input size='10'type="text" onChange={ (e) => this.updateState(e.target.value) } value={this.state.state}/><br/>
+          <label htmlFor="Zipcode">Zipcode</label><br/>
+          <input type="text" onChange={ (e) => this.updateZipcode(e.target.value) } value={this.state.zipcode}/><br/>
+        </div>
+        <div className="next-buttons">
+          <Link to='/wizard/step2'><button className='next' onClick={ () => this.props.stepOne(property_name, address, city, state, zipcode) }>Next Step</button></Link>
+        </div>
       </div>
 	  )
   }

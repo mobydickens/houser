@@ -8,6 +8,8 @@ let { CONNECTION_STRING } = process.env;
 let app = express();
 app.use(bodyParser.json());
 
+// app.use(express.static(`${__dirname}/../build`)); check this after I build
+
 app.get('/api/houses', (req, res) => {
   const dbInstance = req.app.get('db');
   dbInstance.get_houses()
@@ -20,9 +22,9 @@ app.get('/api/houses', (req, res) => {
 })
 
 app.post('/api/house', (req, res) => {
-  let { property_name, address, city, state, zipcode } = req.body;
+  let { property_name, address, city, state, zipcode, image, monthly_mortgage, desired_rent } = req.body;
   const dbInstance = req.app.get('db');
-  dbInstance.add_house(property_name, address, city, state, zipcode)
+  dbInstance.add_house(property_name, address, city, state, Number(zipcode), image, monthly_mortgage, desired_rent)
     .then(() => {
       res.status(200).send('House added!');
     }).catch(error => {

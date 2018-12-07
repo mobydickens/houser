@@ -13,6 +13,7 @@ let initialState = {
 const STEP_ONE = 'STEP_ONE';
 const STEP_TWO = 'STEP_TWO';
 const STEP_THREE = 'STEP_THREE'; 
+const CLEAR_STATE = 'CLEAR_STATE'; 
 //ACTION CREATORS
 
 export function stepOne(property_name, address, city, state, zipcode) {
@@ -45,6 +46,13 @@ export function stepThree(monthly_mortgage, desired_rent) {
   }
 }
 
+export function clearState() {
+  return {
+    type: CLEAR_STATE,
+    payload: ''
+  }
+}
+
 //REDUCER
 export default function reducer(state=initialState, action) {
   switch(action.type) {
@@ -54,6 +62,8 @@ export default function reducer(state=initialState, action) {
       return { ...state, image: action.payload }
     case STEP_THREE:
       return { ...state, monthly_mortgage: action.payload.monthly_mortgage, desired_rent: action.payload.desired_rent }
+    case CLEAR_STATE:
+      return { ...initialState }
     default:
       return state;
   }

@@ -8,7 +8,13 @@ class StepTwo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      image: ''
+      image: this.props.image
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.image !== this.state.image) {
+      console.log('ComponentDidUpdate!');
     }
   }
 
@@ -20,10 +26,11 @@ class StepTwo extends Component {
   }
 
 	render() {
+    console.log('image state', this.state.image)
 		return(
       <div>
         <div>Step Two</div>
-        <input type="text" placeholder='image url' onChange={ (e) => this.updateImage(e.target.value) } value={this.state.image}/>
+        <input type="text" onChange={ (e) => this.updateImage(e.target.value) } value={this.state.image}/>
         <Link to='/wizard/step1'><button onClick={ () => this.props.stepTwo(this.state.image) }>Previous Step</button></Link>
         <Link to='/wizard/step3'><button onClick={ () => this.props.stepTwo(this.state.image) }>Next Step</button></Link>
       </div>

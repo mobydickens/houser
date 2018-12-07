@@ -1,9 +1,140 @@
 * {
   padding: 0;
+  margin: 0
+}
+body {
+  background-color: #afd4c0;
+}
+
+h1 {
+  margin: 20px;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 40px;
+  font-weight: lighter;
+}
+
+h5 {
+  margin: 10px 20px;
+}
+
+p {
+  line-height: 1.2;
+}
+/* HEADER  */
+.header {
   margin: 0;
+  padding: 35px 20px 20px 20px;
+  background-color: #519872;
+  width: 100%;
+  height: 50px;
+}
+.header-title {
+  margin: 40px;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 25px;
+  font-weight: bolder;
+  letter-spacing: 2px;
+  color: white;
 }
 
 .house-box {
   margin: 20px;
   background-color: lightgray;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  height: 160px;
+}
+
+.logo {
+  margin-left: 160px;
+}
+
+/* MAIN */
+.main {
+  margin: 0;
+  width: 740px;
+  height: 100%;
+  margin: 0 auto;
+  background-color: #e5f4ec;
+}
+.main-div {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid 1px black;
+  margin: 10px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.prop-button {
+  margin: 10px;
+  padding: 20px;
+  background-color: #8aea92;
+  width: 200px;
+  height: 60px;
+  border-radius: 5px;
+}
+
+.dashboard-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 10px;
+}
+
+.picture {
+  width: 130px;
+  height: 120px;
+}
+
+.address {
+  width: 200px;
+  height: 120px;
+}
+.payment {
+  width: 120px;
+  height: 120px;
+}
+
+.x {
+  background-color: lightgray;
+  font-size: 15px;;
+}
+
+.listing-title {
+  font-size: 
+  20px;
+}
+
+.cancel {
+  background-color: #fec2c2;
+  width: 60px;
+  height: 30px;
+  border-radius: 5px;
+  margin: 16px 10px;
+}
+
+.inputs {
+  margin: 30px 100px;
+}
+
+input {
+  border-color: green;
+  border-style: 1px;
+}
+
+.next-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.next {
+  margin: 20px;
+  background-color: #3b5249;
+  color: white;
+  width: 70px;
+  height: 40px;
 }
