@@ -50,3 +50,12 @@ massive(CONNECTION_STRING)
     console.log('connected to the db!')
   });
 
+
+// How I altered my table in SqlTabs:
+
+// ALTER TABLE house
+// ADD COLUMN image TEXT,
+// ADD COLUMN monthly_mortgage FLOAT,
+// ADD COLUMN desired_rent FLOAT;
+
+// SELECT * FROM house;

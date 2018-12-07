@@ -15,3 +15,5 @@ function House (props) {
 }
 
 export default House;
+
+// ALTER TABLE table_name ADD COLUMN new_column_name TYPE;
