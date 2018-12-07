@@ -28,11 +28,13 @@ class StepTwo extends Component {
 	render() {
     console.log('image state', this.state.image)
 		return(
-      <div>
-        <div>Step Two</div>
-        <input type="text" onChange={ (e) => this.updateImage(e.target.value) } value={this.state.image}/>
-        <Link to='/wizard/step1'><button onClick={ () => this.props.stepTwo(this.state.image) }>Previous Step</button></Link>
-        <Link to='/wizard/step3'><button onClick={ () => this.props.stepTwo(this.state.image) }>Next Step</button></Link>
+      <div className='inputs'>
+        <label htmlFor="image">Image URL</label><br/>
+        <input size='87' type="text" onChange={ (e) => this.updateImage(e.target.value) } value={this.state.image}/><br/>
+        <div className='next-buttons next-buttons-split'>
+          <Link to='/wizard/step1'><button className='next' onClick={ () => this.props.stepTwo(this.state.image) }>Previous Step</button></Link>
+          <Link to='/wizard/step3'><button className='next' onClick={ () => this.props.stepTwo(this.state.image) }>Next Step</button></Link>
+        </div>
       </div>
 	  )
   }

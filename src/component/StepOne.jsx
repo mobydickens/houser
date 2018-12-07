@@ -59,7 +59,7 @@ class StepOne extends Component {
           <input size='30' type="text" onChange={ (e) => this.updateName(e.target.value) } value={this.state.property_name}/><br/>
           <label htmlFor="address">Address</label><br/>
           <input size='70' type="text" onChange={ (e) => this.updateAddress(e.target.value) } value={this.state.address}/><br/>
-          <label htmlFor="city">City</label><br/>
+          <label size='30' htmlFor="city">City</label><br/>
           <input type="text" onChange={ (e) => this.updateCity(e.target.value) } value={this.state.city}/><br/>
           <label htmlFor="State">State</label><br/>
           <input size='10'type="text" onChange={ (e) => this.updateState(e.target.value) } value={this.state.state}/><br/>

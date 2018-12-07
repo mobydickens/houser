@@ -1,11 +1,10 @@
 import React from 'react';
 
 function House (props) {
-  // console.log("props in house", props.houses)
 	return(
     <div className='house-box'>
       <div className='picture dashboard-box'>
-        <img src={props.house.image} alt="house"/>
+        <img className='img' src={props.house.image} alt="house"/>
       </div>
       <div className='address dashboard-box'>
         <p>Property Name: {props.house.property_name}</p>

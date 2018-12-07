@@ -39,7 +39,7 @@ class StepThree extends Component {
         city: this.props.city,
         state: this.props.state,
         zipcode: this.props.zipcode,
-        // image: this.props.image,
+        image: this.props.image,
         monthly_mortgage: this.state.monthly_mortgage,
         desired_rent: this.state.desired_rent
       })
@@ -50,11 +50,16 @@ class StepThree extends Component {
 
 	render() {
 		return(
-      <div>
-        <input type="text" placeholder='0' onChange={ (e) => this.updateMortgage(e.target.value) } value={this.state.monthly_mortgage}/>
-        <input type="text" placeholder='0' onChange={ (e) => this.updateRent(e.target.value) } value={this.state.desired_rent}/>
-        <Link to='/wizard/step2'><button onClick={ () => this.props.stepThree(this.state.monthly_mortgage, this.state.desired_rent) }>Previous</button></Link>
-        <Link to='/'><button onClick={ () => this.addHouse() }>Complete</button></Link>
+      <div className='inputs'>
+        <div className='rent'>Recommended Rent: $0</div>
+        <label htmlFor="mortgage">Monthly Mortgage Amount</label><br/>
+        <input size='87' type="text" placeholder='0' onChange={ (e) => this.updateMortgage(e.target.value) } value={this.state.monthly_mortgage}/><br/>
+        <label htmlFor="rent">Desired Monthly Rent</label><br/>
+        <input size='87' type="text" placeholder='0' onChange={ (e) => this.updateRent(e.target.value) } value={this.state.desired_rent}/>
+        <div className="next-buttons-split">
+          <Link to='/wizard/step2'><button className='next' onClick={ () => this.props.stepThree(this.state.monthly_mortgage, this.state.desired_rent) }>Previous</button></Link>
+          <Link to='/'><button className='next complete' onClick={ () => this.addHouse() }>Complete</button></Link>
+        </div>
       </div>
 	  )
   }
@@ -70,7 +75,7 @@ function mapStateToProps( state ) {
     city: state.city,
     state: state.state,
     zipcode: state.zipcode,
-    // image: this.props.image
+    image: state.image
   }
 }
 
