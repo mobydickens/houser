@@ -26,7 +26,6 @@ class StepTwo extends Component {
   }
 
 	render() {
-    console.log('image state', this.state.image)
 		return(
       <div className='inputs'>
         <label htmlFor="image">Image URL</label><br/>

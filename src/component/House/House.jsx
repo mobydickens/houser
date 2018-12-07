@@ -14,7 +14,7 @@ function House (props) {
         <p>Zip: {props.house.zipcode}</p>
       </div>
       <div className='payments dashboard-box'>
-        <p>Monthly Mortgage: {props.house.mortgage_amount}</p>
+        <p>Monthly Mortgage: {props.house.monthly_mortgage}</p>
         <p>Desired Rent: {props.house.desired_rent}</p>
       </div>
       <div className='dashboard-box'>

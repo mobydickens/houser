@@ -18,7 +18,7 @@ class Dashboard extends Component {
 
   componentWillUpdate(prevProps) {
     if(prevProps.data !== this.props.match.params) {
-      this.getAllHouses();
+      return this.getAllHouses;
     }
   }
 
@@ -26,7 +26,6 @@ class Dashboard extends Component {
     axios
       .get('/api/houses')
       .then(res => {
-        console.log(res)
         this.setState({
           houses: res.data
         })
@@ -37,7 +36,6 @@ class Dashboard extends Component {
     axios 
       .delete(`/api/house/${id}`)
       .then(res => {
-        console.log(res.data);
         this.getAllHouses();
       })
   }

@@ -18,7 +18,7 @@ class StepOne extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.property_name !== this.state.property_name) {
-      console.log('ComponentDidUpdate!');
+      console.log('updating!');
     }
   }
 
