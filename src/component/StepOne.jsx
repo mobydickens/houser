@@ -53,12 +53,8 @@ class StepOne extends Component {
     console.log("props in step one", this.props.property_name)
     let { property_name, address, city, state, zipcode } = this.state
 		return(
-      <div className='main'>
-        <div className='main-div'>
-          <h1 className='listing-title'>Add New Listing</h1>
-          <Link to='/'><button className='cancel'>Cancel</button></Link>
-        </div>
-          <div className="inputs">
+      <div>
+        <div className="inputs">
           <label htmlFor="property name">Property Name</label><br/>
           <input size='30' type="text" onChange={ (e) => this.updateName(e.target.value) } value={this.state.property_name}/><br/>
           <label htmlFor="address">Address</label><br/>
