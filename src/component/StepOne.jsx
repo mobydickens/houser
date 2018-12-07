@@ -70,4 +70,4 @@ function mapStateToProps( state ) {
   }
 }
 
-export default connect(mapStateToProps, { stepOne } )(StepOne) ;
+export default connect(mapStateToProps, { stepOne } )(StepOne);
