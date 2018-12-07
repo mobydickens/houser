@@ -8,7 +8,7 @@ let { CONNECTION_STRING } = process.env;
 let app = express();
 app.use(bodyParser.json());
 
-// app.use(express.static(`${__dirname}/../build`)); check this after I build
+app.use(express.static( __dirname + '/../../build/static')); 
 
 app.get('/api/houses', (req, res) => {
   const dbInstance = req.app.get('db');

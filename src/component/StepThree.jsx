@@ -21,14 +21,30 @@ class StepThree extends Component {
   }
   //inputs for updating form
   updateMortgage = (value) => {
-    this.setState({
-      monthly_mortgage: value
-    })
+    let regex = /(\D)+/;
+    if (value.match(regex)) {
+      this.setState({
+        monthly_mortgage: this.props.monthly_mortgage,
+      })
+      alert('Please input only numbers!');
+      } else {
+      this.setState({
+        monthly_mortgage: value
+      })
+    }
   }
   updateRent = (value) => {
-    this.setState({
-      desired_rent: value
-    })
+    let regex = /(\D)+/;
+    if (value.match(regex)) {
+      this.setState({
+        desired_rent: this.props.desired_rent,
+      })
+      alert('Please input only numbers!');
+    } else {
+      this.setState({
+        desired_rent: value
+      })
+    }
   }
 
   addHouse = () => {

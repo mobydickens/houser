@@ -48,10 +48,20 @@ class StepOne extends Component {
       state: value
     })
   }
+
+  
   updateZipcode = (value) => {
-    this.setState({
-      zipcode: value
-    })
+    let regex = /(\D)+/;
+    if (value.match(regex)) {
+      this.setState({
+        zipcode: this.props.zipcode,
+      })
+      alert('Please input only numbers!');
+    } else {
+        this.setState({
+          zipcode: value
+      })
+    }
   }
 
 	render() {

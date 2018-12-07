@@ -54,6 +54,7 @@ class Dashboard extends Component {
         <div className='main-div'>
           <h1>Dashboard</h1>
           <Link to='/wizard/step1'><button className='prop-button'>Add New Property</button></Link>
+          {/* <input type="text" placeholder="Search..."/> */}
         </div>
         <h5>Home Listings</h5>
         {houseList}
