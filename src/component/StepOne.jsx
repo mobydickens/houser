@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class StepOne extends Component {
 
@@ -42,6 +43,7 @@ class StepOne extends Component {
   }
 
 	render() {
+    console.log("props in step one", this.props)
 		return(
       <div>
         <div>Step One</div>
@@ -56,4 +58,14 @@ class StepOne extends Component {
   }
 }
 
-export default StepOne ;
+function mapStateToProps( state ) {
+  return {
+    property_name: state.property_name,
+    address: state.address,
+    city: state.city,
+    state: state.state,
+    zipcode: state.zipcode
+  }
+}
+
+export default connect(mapStateToProps, {} )(StepOne) ;

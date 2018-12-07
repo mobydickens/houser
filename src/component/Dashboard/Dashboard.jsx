@@ -9,6 +9,7 @@ class Dashboard extends Component {
     this.state = {
       houses: []
     }
+    this.componentDidMount = this.componentDidMount.bind(this);
   }
 
   componentDidMount(){
