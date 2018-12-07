@@ -8,6 +8,14 @@ let { CONNECTION_STRING } = process.env;
 let app = express();
 app.use(bodyParser.json());
 
+app.get('/api/houses', (req, res) => {
+  const dbInstance = req.app.get('db');
+  dbInstance.get_houses()
+    .then(houses => {
+      res.status(200).send(houses);
+    });
+})
+
 massive(CONNECTION_STRING)
   .then(dbInstance => {
     app.set('db', dbInstance);
