@@ -17,7 +17,12 @@ class StepOne extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.property_name !== this.state.property_name) {
+    if (prevState.property_name 
+        !== this.state.property_name 
+        || prevState.address !== this.state.address
+        || prevState.city !== this.state.city
+        || prevState.state !== this.state.state
+        || prevState.zipcode !== this.state.zipcode) {
       console.log('updating!');
     }
   }
@@ -50,7 +55,6 @@ class StepOne extends Component {
   }
 
 	render() {
-    console.log("props in step one", this.props.property_name)
     let { property_name, address, city, state, zipcode } = this.state
 		return(
       <div>

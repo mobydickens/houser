@@ -20,6 +20,11 @@ h5 {
 p {
   line-height: 1.2;
 }
+
+button {
+  cursor: pointer;
+}
+
 /* HEADER  */
 .header {
   margin: 0;
@@ -47,7 +52,7 @@ p {
 }
 
 .logo {
-  margin-left: 160px;
+  margin-left: 24vw;
 }
 
 /* MAIN */
@@ -62,11 +67,8 @@ p {
   display: flex;
   justify-content: space-between;
   border-bottom: solid 1px black;
-  margin: 10px;
-}
-
-button {
-  cursor: pointer;
+  height: 100%;
+  margin: 0 10px;
 }
 
 .prop-button {
@@ -92,7 +94,7 @@ button {
 }
 
 .address {
-  width: 200px;
+  width: 260px;
   height: 120px;
 }
 .payment {
@@ -125,7 +127,8 @@ button {
 input {
   border-color: green;
   border-style: 1px;
-  margin: 10px 0 25px 0;
+  margin: 10px 0 15px 0;
+  padding: 6px;
 }
 
 .img {
