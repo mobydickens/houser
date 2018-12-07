@@ -21,7 +21,7 @@ class StepTwo extends Component {
 		return(
       <div>
         <div>Step Two</div>
-        <input type="text" placeholder='image url' onChange={ (e) => this.udpateImage(e.target.value) } value={this.state.image}/>
+        <input type="text" placeholder='image url' onChange={ (e) => this.updateImage(e.target.value) } value={this.state.image}/>
         <Link to='/wizard/step1'><button>Previous Step</button></Link>
         <Link to='/wizard/step3'><button>Next Step</button></Link>
       </div>
