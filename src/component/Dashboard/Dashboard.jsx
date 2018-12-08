@@ -16,12 +16,6 @@ class Dashboard extends Component {
     this.getAllHouses();
   }
 
-  componentWillUpdate(prevProps) {
-    if(prevProps.data !== this.props.match.params) {
-      return this.getAllHouses;
-    }
-  }
-
   getAllHouses = () => {
     axios
       .get('/api/houses')

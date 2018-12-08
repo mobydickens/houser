@@ -12,12 +12,6 @@ class StepTwo extends Component {
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.image !== this.state.image) {
-      console.log('ComponentDidUpdate!');
-    }
-  }
-
   //input for updating form on page two
   updateImage = (value) => {
     this.setState({

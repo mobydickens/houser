@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { stepThree, clearState } from '../ducks/reducer';
 import axios from 'axios';
@@ -10,15 +10,11 @@ class StepThree extends Component {
     super(props);
     this.state = {
       monthly_mortgage: this.props.monthly_mortgage,
-      desired_rent: this.props.desired_rent
+      desired_rent: this.props.desired_rent,
+      done: false
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.monthly_mortgage !== this.state.monthly_mortgage || prevState.desired_rent !== this.state.desired_rent) {
-      console.log('ComponentDidUpdate!');
-    }
-  }
   //inputs for updating form
   updateMortgage = (value) => {
     let regex = /(\D)+/;
@@ -61,21 +57,28 @@ class StepThree extends Component {
       })
       .then(res => {
         this.props.clearState();
+        this.setState({
+          done: true
+        })
       })
   }
 
 	render() {
 		return(
-      <div className='inputs'>
-        <div className='rent'>Recommended Rent: $0</div>
-        <label htmlFor="mortgage">Monthly Mortgage Amount</label><br/>
-        <input size='87' type="text" placeholder='0' onChange={ (e) => this.updateMortgage(e.target.value) } value={this.state.monthly_mortgage}/><br/>
-        <label htmlFor="rent">Desired Monthly Rent</label><br/>
-        <input size='87' type="text" placeholder='0' onChange={ (e) => this.updateRent(e.target.value) } value={this.state.desired_rent}/>
-        <div className="next-buttons-split">
-          <Link to='/wizard/step2'><button className='next' onClick={ () => this.props.stepThree(this.state.monthly_mortgage, this.state.desired_rent) }>Previous</button></Link>
-          <Link to='/'><button className='next complete' onClick={ () => this.addHouse() }>Complete</button></Link>
-        </div>
+      <div>
+        { this.state.done ? <Redirect to='/'></Redirect> : 
+          <div className='inputs'>
+            <div className='rent'>Recommended Rent: $0</div>
+            <label htmlFor="mortgage">Monthly Mortgage Amount</label><br/>
+            <input size='87' type="text" placeholder='0' onChange={ (e) => this.updateMortgage(e.target.value) } value={this.state.monthly_mortgage}/><br/>
+            <label htmlFor="rent">Desired Monthly Rent</label><br/>
+            <input size='87' type="text" placeholder='0' onChange={ (e) => this.updateRent(e.target.value) } value={this.state.desired_rent}/>
+            <div className="next-buttons-split">
+              <Link to='/wizard/step2'><button className='next' onClick={ () => this.props.stepThree(this.state.monthly_mortgage, this.state.desired_rent) }>Previous</button></Link>
+              <button className='next complete' onClick={ () => this.addHouse() }>Complete</button>
+            </div> 
+          </div>
+        }
       </div>
 	  )
   }

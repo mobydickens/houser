@@ -16,17 +16,6 @@ class StepOne extends Component {
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.property_name 
-        !== this.state.property_name 
-        || prevState.address !== this.state.address
-        || prevState.city !== this.state.city
-        || prevState.state !== this.state.state
-        || prevState.zipcode !== this.state.zipcode) {
-      console.log('updating!');
-    }
-  }
-
   //inputs for updating form
   updateName = (value) => {
     this.setState({
